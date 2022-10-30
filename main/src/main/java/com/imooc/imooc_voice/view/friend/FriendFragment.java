@@ -14,7 +14,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.imooc.imooc_voice.R;
 import com.imooc.imooc_voice.api.MockData;
 import com.imooc.imooc_voice.api.RequestCenter;
 import com.imooc.imooc_voice.model.friend.BaseFriendModel;
@@ -23,6 +22,7 @@ import com.imooc.imooc_voice.view.friend.adapter.FriendRecyclerAdapter;
 import com.imooc.lib_commin_ui.recyclerview.wrapper.LoadMoreWrapper;
 import com.imooc.lib_network.okhttp.listener.DisposeDataListener;
 import com.imooc.lib_network.okhttp.utils.ResponseEntityToModule;
+import com.imooc.imooc_voice.R;
 
 import java.util.ArrayList;
 import java.util.List;

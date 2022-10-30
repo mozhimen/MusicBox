@@ -29,9 +29,9 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly 'androidx.appcompat:appcompat:1.0.0'
-    compileOnly 'androidx.recyclerview:recyclerview:1.0.0'
-    //可以用arouter去掉此依赖
-    compileOnly project(':lib_image_loader')
+    implementation 'androidx.recyclerview:recyclerview:1.0.0'
     api "com.github.hackware1993:MagicIndicator:1.5.0"
+
+    implementation project(':lib_image_loader')
+    implementation project(':lib_base')
 }

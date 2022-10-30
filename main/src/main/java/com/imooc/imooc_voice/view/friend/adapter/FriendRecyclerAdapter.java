@@ -6,7 +6,6 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
-import com.imooc.imooc_voice.R;
 import com.imooc.imooc_voice.model.friend.FriendBodyValue;
 import com.imooc.imooc_voice.utils.UserManager;
 import com.imooc.imooc_voice.view.login.LoginActivity;
@@ -17,6 +16,7 @@ import com.imooc.lib_commin_ui.recyclerview.base.ItemViewDelegate;
 import com.imooc.lib_commin_ui.recyclerview.base.ViewHolder;
 import com.imooc.lib_image_loader.app.ImageLoaderManager;
 import com.imooc.lib_video.videoplayer.core.VideoAdContext;
+import com.imooc.imooc_voice.R;
 
 import java.util.List;
 
@@ -55,8 +55,8 @@ public class FriendRecyclerAdapter extends MultiItemTypeAdapter {
             holder.setText(R.id.text_view, recommandBodyValue.text);
             holder.setText(R.id.zan_view, recommandBodyValue.zan);
             holder.setText(R.id.message_view, recommandBodyValue.msg);
-            holder.setText(R.id.audio_name_view, recommandBodyValue.audioBean.name);
-            holder.setText(R.id.audio_author_view, recommandBodyValue.audioBean.album);
+            holder.setText(R.id.audio_name_view, recommandBodyValue.audioBean.getName());
+            holder.setText(R.id.audio_author_view, recommandBodyValue.audioBean.getAlbum());
             holder.setOnClickListener(R.id.album_layout, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -77,7 +77,7 @@ public class FriendRecyclerAdapter extends MultiItemTypeAdapter {
             ImageLoaderManager.getInstance().displayImageForCircle(avatar, recommandBodyValue.avatr);
             ImageView albumPicView = holder.getView(R.id.album_view);
             ImageLoaderManager.getInstance()
-                    .displayImageForView(albumPicView, recommandBodyValue.audioBean.albumPic);
+                    .displayImageForView(albumPicView, recommandBodyValue.audioBean.getAlbumPic());
 
             MultiImageViewLayout imageViewLayout = holder.getView(R.id.image_layout);
             imageViewLayout.setList(recommandBodyValue.pics);

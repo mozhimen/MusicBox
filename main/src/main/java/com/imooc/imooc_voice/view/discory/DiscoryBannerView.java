@@ -5,11 +5,11 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
-import com.imooc.imooc_voice.R;
 import com.imooc.imooc_voice.view.discory.adapter.BannerPagerAdapter;
 import com.imooc.imooc_voice.model.discory.RecommandHeadValue;
 import com.imooc.lib_commin_ui.banner.AutoScrollViewPager;
 import com.imooc.lib_commin_ui.pager_indictor.CirclePageIndicator;
+import com.imooc.imooc_voice.R;
 
 public class DiscoryBannerView extends RelativeLayout {
   private Context mContext;

@@ -29,6 +29,6 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly 'androidx.appcompat:appcompat:1.0.0'
-    compileOnly project(':lib_commin_ui')
+    implementation project(':lib_commin_ui')
+    implementation project(':lib_base')
 }

@@ -24,18 +24,19 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.imooc.lib_audio.R;
 import com.imooc.lib_audio.mediaplayer.core.AudioController;
 import com.imooc.lib_audio.mediaplayer.core.CustomMediaPlayer;
-import com.imooc.lib_audio.mediaplayer.db.GreenDaoHelper;
 import com.imooc.lib_audio.mediaplayer.events.AudioFavouriteEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioLoadEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioPauseEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioPlayModeEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioProgressEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioStartEvent;
-import com.imooc.lib_audio.mediaplayer.model.AudioBean;
 import com.imooc.lib_audio.mediaplayer.utils.Utils;
 import com.imooc.lib_commin_ui.base.BaseActivity;
 import com.imooc.lib_image_loader.app.ImageLoaderManager;
 import com.imooc.lib_share.share.ShareDialog;
+import com.mozhimen.basick.executork.ExecutorK;
+import com.mozhimen.biz_db.BizDb;
+import com.mozhimen.biz_db.mos.AudioBean;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -46,6 +47,7 @@ import org.greenrobot.eventbus.ThreadMode;
  */
 @Route(path = "/audio/music_activity")
 public class MusicPlayerActivity extends BaseActivity {
+    private static final String TAG = "MusicPlayerActivity>>>>>";
 
     private RelativeLayout mBgView;
     private TextView mInfoView;
@@ -102,7 +104,7 @@ public class MusicPlayerActivity extends BaseActivity {
 
     private void initView() {
         mBgView = findViewById(R.id.root_layout);
-        ImageLoaderManager.getInstance().displayImageForViewGroup(mBgView, mAudioBean.albumPic);
+        ImageLoaderManager.getInstance().displayImageForViewGroup(mBgView, mAudioBean.getAlbumPic());
         findViewById(R.id.back_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,7 +120,7 @@ public class MusicPlayerActivity extends BaseActivity {
         findViewById(R.id.share_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shareMusic(mAudioBean.mUrl, mAudioBean.name);
+                shareMusic(mAudioBean.getUrl(), mAudioBean.getName());
             }
         });
         findViewById(R.id.show_list_view).setOnClickListener(new View.OnClickListener() {
@@ -129,10 +131,10 @@ public class MusicPlayerActivity extends BaseActivity {
             }
         });
         mInfoView = findViewById(R.id.album_view);
-        mInfoView.setText(mAudioBean.albumInfo);
+        mInfoView.setText(mAudioBean.getAlbumInfo());
         mInfoView.requestFocus();
         mAuthorView = findViewById(R.id.author_view);
-        mAuthorView.setText(mAudioBean.author);
+        mAuthorView.setText(mAudioBean.getAuthor());
 
         mFavouriteView = findViewById(R.id.favourite_view);
         mFavouriteView.setOnClickListener(new View.OnClickListener() {
@@ -195,10 +197,10 @@ public class MusicPlayerActivity extends BaseActivity {
     public void onAudioLoadEvent(AudioLoadEvent event) {
         //更新notifacation为load状态
         mAudioBean = event.mAudioBean;
-        ImageLoaderManager.getInstance().displayImageForViewGroup(mBgView, mAudioBean.albumPic);
+        ImageLoaderManager.getInstance().displayImageForViewGroup(mBgView, mAudioBean.getAlbumPic());
         //可以与初始化时的封装一个方法
-        mInfoView.setText(mAudioBean.albumInfo);
-        mAuthorView.setText(mAudioBean.author);
+        mInfoView.setText(mAudioBean.getAlbumInfo());
+        mAuthorView.setText(mAudioBean.getAuthor());
         changeFavouriteStatus(false);
         mProgressView.setProgress(0);
     }
@@ -267,11 +269,14 @@ public class MusicPlayerActivity extends BaseActivity {
     }
 
     private void changeFavouriteStatus(boolean anim) {
-        if (GreenDaoHelper.selectFavourite(mAudioBean) != null) {
-            mFavouriteView.setImageResource(R.mipmap.audio_aeh);
-        } else {
-            mFavouriteView.setImageResource(R.mipmap.audio_aef);
-        }
+        ExecutorK.INSTANCE.execute(TAG, () -> {
+            if (BizDb.INSTANCE.hasFavouriteBean(mAudioBean.getId())) {
+                runOnUiThread(() -> mFavouriteView.setImageResource(R.mipmap.audio_aeh));
+            } else {
+                runOnUiThread(() -> mFavouriteView.setImageResource(R.mipmap.audio_aef));
+            }
+        });
+
 
         if (anim) {
             //留个作业，将动画封到view中作为一个自定义View

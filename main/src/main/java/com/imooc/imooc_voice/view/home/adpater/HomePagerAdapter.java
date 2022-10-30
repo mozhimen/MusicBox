@@ -31,7 +31,7 @@ public class HomePagerAdapter extends FragmentPagerAdapter {
             case CHANNEL.FRIEND_ID:
                 return FriendFragment.newInstance();
             case CHANNEL.VIDEO_ID:
-                return VideoFragment.newInstance();
+                return VideoFragment.Companion.newInstance();
         }
         return null;
     }

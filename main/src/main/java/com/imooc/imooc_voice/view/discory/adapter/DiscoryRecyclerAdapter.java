@@ -6,12 +6,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.imooc.imooc_voice.R;
 import com.imooc.imooc_voice.model.discory.RecommandBodyValue;
 import com.imooc.lib_commin_ui.recyclerview.MultiItemTypeAdapter;
 import com.imooc.lib_commin_ui.recyclerview.base.ItemViewDelegate;
 import com.imooc.lib_commin_ui.recyclerview.base.ViewHolder;
 import com.imooc.lib_image_loader.app.ImageLoaderManager;
+import com.imooc.imooc_voice.R;
 
 import java.util.List;
 

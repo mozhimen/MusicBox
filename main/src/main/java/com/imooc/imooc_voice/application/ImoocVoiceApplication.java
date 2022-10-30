@@ -7,8 +7,9 @@ import com.imooc.lib_audio.app.AudioHelper;
 import com.imooc.lib_share.share.ShareManager;
 import com.imooc.lib_update.app.UpdateHelper;
 import com.imooc.lib_video.app.VideoHelper;
+import com.mozhimen.basick.basek.BaseKApplication;
 
-public class ImoocVoiceApplication extends Application {
+public class ImoocVoiceApplication extends BaseKApplication {
 
     private static ImoocVoiceApplication mApplication = null;
 

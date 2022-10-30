@@ -1,7 +1,8 @@
 package com.imooc.imooc_voice.model.friend;
 
 import com.imooc.imooc_voice.model.BaseModel;
-import com.imooc.lib_audio.mediaplayer.model.AudioBean;
+import com.mozhimen.biz_db.mos.AudioBean;
+
 import java.util.ArrayList;
 
 /**

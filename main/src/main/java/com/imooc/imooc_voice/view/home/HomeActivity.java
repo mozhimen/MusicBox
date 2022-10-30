@@ -17,7 +17,6 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import androidx.viewpager.widget.ViewPager;
 
 import com.alibaba.android.arouter.launcher.ARouter;
-import com.imooc.imooc_voice.R;
 import com.imooc.imooc_voice.model.login.LoginEvent;
 import com.imooc.imooc_voice.utils.UserManager;
 import com.imooc.imooc_voice.view.home.adpater.HomePagerAdapter;
@@ -26,11 +25,12 @@ import com.imooc.imooc_voice.model.CHANNEL;
 import com.imooc.imooc_voice.utils.Utils;
 import com.imooc.imooc_voice.view.login.LoginActivity;
 import com.imooc.lib_audio.app.AudioHelper;
-import com.imooc.lib_audio.mediaplayer.model.AudioBean;
 import com.imooc.lib_commin_ui.base.BaseActivity;
 import com.imooc.lib_commin_ui.pager_indictor.ScaleTransitionPagerTitleView;
 import com.imooc.lib_image_loader.app.ImageLoaderManager;
 import com.imooc.lib_update.app.UpdateHelper;
+import com.mozhimen.biz_db.mos.AudioBean;
+import com.imooc.imooc_voice.R;
 
 import java.util.ArrayList;
 

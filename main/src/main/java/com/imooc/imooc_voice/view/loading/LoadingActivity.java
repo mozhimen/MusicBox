@@ -5,11 +5,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 
-import com.imooc.imooc_voice.R;
 import com.imooc.imooc_voice.view.home.HomeActivity;
 import com.imooc.lib_commin_ui.base.BaseActivity;
 import com.imooc.lib_commin_ui.base.constant.Constant;
 import com.imooc.lib_pullalive.app.AliveJobService;
+import com.imooc.imooc_voice.R;
 
 public class LoadingActivity extends BaseActivity {
 

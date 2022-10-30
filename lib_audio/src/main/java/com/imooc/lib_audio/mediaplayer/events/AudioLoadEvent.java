@@ -1,6 +1,6 @@
 package com.imooc.lib_audio.mediaplayer.events;
 
-import com.imooc.lib_audio.mediaplayer.model.AudioBean;
+import com.mozhimen.biz_db.mos.AudioBean;
 
 public class AudioLoadEvent {
   public AudioBean mAudioBean;

@@ -17,7 +17,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.imooc.imooc_voice.R;
 import com.imooc.imooc_voice.api.MockData;
 import com.imooc.imooc_voice.api.RequestCenter;
 import com.imooc.imooc_voice.model.discory.BaseRecommandModel;
@@ -30,6 +29,7 @@ import com.imooc.lib_commin_ui.recyclerview.wrapper.LoadMoreWrapper;
 import com.imooc.lib_image_loader.app.ImageLoaderManager;
 import com.imooc.lib_network.okhttp.listener.DisposeDataListener;
 import com.imooc.lib_network.okhttp.utils.ResponseEntityToModule;
+import com.imooc.imooc_voice.R;
 
 import java.util.ArrayList;
 import java.util.List;

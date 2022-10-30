@@ -10,12 +10,12 @@ import android.widget.RelativeLayout;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.imooc.imooc_voice.R;
 import com.imooc.imooc_voice.model.discory.RecommandHeadValue;
 import com.imooc.imooc_voice.model.discory.RecommandMiddleValue;
 import com.imooc.lib_commin_ui.recyclerview.CommonAdapter;
 import com.imooc.lib_commin_ui.recyclerview.base.ViewHolder;
 import com.imooc.lib_image_loader.app.ImageLoaderManager;
+import com.imooc.imooc_voice.R;
 
 public class DiscoryRecommandView extends RelativeLayout {
     private Context mContext;

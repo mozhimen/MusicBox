@@ -1,7 +1,7 @@
 ext {
     android = [
             compileSdk     : 31,
-            applicationId  : 'com.mozhimen.musicbox',
+            applicationId  : 'com.imooc.imooc_voice',
             minSdk         : 19,
             targetSdk      : 31,
             versionCode    : 1,

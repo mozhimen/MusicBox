@@ -29,11 +29,11 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    compileOnly 'androidx.appcompat:appcompat:1.0.0'
-    //glide相关依赖
+    implementation project(':lib_base')
+
     implementation "com.github.bumptech.glide:glide:4.9.0"
-    annotationProcessor "com.github.bumptech.glide:compiler:4.9.0"
-    //占位主工程rxjava
-    compileOnly "io.reactivex.rxjava2:rxjava:2.2.9"
-    compileOnly "io.reactivex.rxjava2:rxandroid:2.1.1"
+    kapt "com.github.bumptech.glide:compiler:4.9.0"
+
+    implementation "io.reactivex.rxjava2:rxjava:2.2.9"
+    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
 }

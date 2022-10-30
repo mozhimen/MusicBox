@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'com.alibaba.arouter'
 }
 
 android {
@@ -11,13 +10,6 @@ android {
     defaultConfig {
         minSdk rootProject.android.minSdk
         targetSdk rootProject.android.targetSdk
-
-        //ARouter配置
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
-            }
-        }
     }
 
     buildTypes {
@@ -42,26 +34,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    //占位主工程android原生库
-    compileOnly 'androidx.appcompat:appcompat:1.0.0'
-    compileOnly 'com.google.android.material:material:1.0.0'
-    compileOnly 'androidx.recyclerview:recyclerview:1.0.0'
 
-    //占位主工程的greenDao类库
-    compileOnly "org.greenrobot:greendao:3.2.2"
-    //占位主工程的eventbus库
-    compileOnly "org.greenrobot:eventbus:3.1.1"
-    //占位主工程的rxjava库
-    compileOnly "io.reactivex.rxjava2:rxjava:2.2.9"
-    //占位主工程arouter库
-    compileOnly("com.alibaba:arouter-api:1.5.0") {
-        exclude group: 'com.android.support'
-    }
-    annotationProcessor "com.alibaba:arouter-compiler:1.2.2"
+    implementation "org.greenrobot:eventbus:3.1.1"
+    implementation "io.reactivex.rxjava2:rxjava:2.2.9"
 
     //占位主工程自己源码库
-    compileOnly project(':lib_image_loader')
-    compileOnly project(':lib_commin_ui')
-    compileOnly project(':lib_share')
-    compileOnly project(':lib_base')
+    implementation project(':lib_image_loader')
+    implementation project(':lib_commin_ui')
+    implementation project(':lib_share')
+    implementation project(':lib_base')
+    implementation project(path: ':biz_db')
 }

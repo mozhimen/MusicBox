@@ -14,8 +14,8 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.imooc.lib_audio.R;
 import com.imooc.lib_audio.mediaplayer.core.AudioController;
-import com.imooc.lib_audio.mediaplayer.model.AudioBean;
 import com.imooc.lib_image_loader.app.ImageLoaderManager;
+import com.mozhimen.biz_db.mos.AudioBean;
 
 import java.util.ArrayList;
 
@@ -44,7 +44,7 @@ public class MusicPagerAdapter extends PagerAdapter {
         ImageView imageView = rootView.findViewById(R.id.circle_view);
         container.addView(rootView);
         ImageLoaderManager.getInstance()
-                .displayImageForCircle(imageView, mAudioBeans.get(position).albumPic);
+                .displayImageForCircle(imageView, mAudioBeans.get(position).getAlbumPic());
         //只在无动化时创建
         mAnims.put(position, createAnim(rootView)); // 将动画缓存起来
         return rootView;

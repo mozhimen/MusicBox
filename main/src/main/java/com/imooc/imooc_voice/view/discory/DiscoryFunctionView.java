@@ -5,6 +5,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
+
 import com.imooc.imooc_voice.R;
 
 public class DiscoryFunctionView extends RelativeLayout {

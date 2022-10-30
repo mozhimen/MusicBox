@@ -14,7 +14,7 @@ android {
 
         javaCompileOptions {
             annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+                arguments = [AROUTER_MODULE_NAME: project.getName()/*, AROUTER_GENERATE_DOC: "enable"*/]
             }
         }
     }
@@ -40,10 +40,7 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    compileOnly 'androidx.appcompat:appcompat:1.0.0'
-    //占位主工程arouter库
-    compileOnly("com.alibaba:arouter-api:1.5.0") {
-        exclude group: 'com.android.support'
-    }
-    annotationProcessor "com.alibaba:arouter-compiler:1.2.2"
+    api project(path: ':SwiftKit:basick')
+    api "com.alibaba:arouter-api:1.5.1"
+    kapt "com.alibaba:arouter-compiler:1.5.1"
 }
