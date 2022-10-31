@@ -284,8 +284,7 @@ public class AudioController {
 
     //插放完毕事件处理
     @Subscribe(threadMode = ThreadMode.MAIN)
-    public void onAudioCompleteEvent(
-            AudioCompleteEvent event) {
+    public void onAudioCompleteEvent(AudioCompleteEvent event) {
         next();
     }
 
