@@ -2,7 +2,7 @@ ext {
     android = [
             compileSdk     : 31,
             applicationId  : 'com.imooc.imooc_voice',
-            minSdk         : 19,
+            minSdk         : 21,
             targetSdk      : 31,
             versionCode    : 1,
             versionName    : '1.0.0',

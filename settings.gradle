@@ -26,5 +26,10 @@ include ':lib_base'
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("C:\\Users\\mozhimen\\Documents\\GitHub\\SwiftKit")
 include ':SwiftKit:basick'
+include ':SwiftKit:componentk'
+include ':SwiftKit:uicorek'
+include ':SwiftKit:underlayk'
 
 include ':biz_db'
+include ':biz_music'
+include ':musicbox'
