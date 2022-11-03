@@ -1,11 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <RelativeLayout
+        android:id="@+id/music_play_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/black">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <!--标题布局-->
+        <RelativeLayout
+            android:id="@+id/music_play_title_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="12dp"
+            android:paddingTop="8dp">
+
+            <ImageView
+                android:id="@+id/music_play_title_back"
+                style="@style/music_play_icon"
+                android:layout_alignParentStart="true"
+                android:src="@mipmap/ic_back" />
+
+            <ImageView
+                android:id="@+id/music_play_title_share"
+                style="@style/music_play_icon"
+                android:layout_alignParentEnd="true"
+                android:src="@mipmap/ic_share" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_toStartOf="@id/music_play_title_share"
+                android:layout_toEndOf="@id/music_play_title_back"
+                android:layout_marginHorizontal="12dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="marquee"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:marqueeRepeatLimit="-1"
+                    android:singleLine="true"
+                    android:textColor="@color/white"
+                    android:textSize="17sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/white"
+                    android:textSize="13sp"
+                    tools:text="周杰伦" />
+            </LinearLayout>
+        </RelativeLayout>
+    </RelativeLayout>
 </layout>

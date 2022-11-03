@@ -69,7 +69,6 @@
         android:layout_height="wrap_content"
         android:layout_below="@id/title_layout" />
 
-
     <!--底部布局-->
     <RelativeLayout
         android:id="@+id/bottom_layout"
