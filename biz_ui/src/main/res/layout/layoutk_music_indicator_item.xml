@@ -12,7 +12,7 @@
         android:padding="50dp">
 
         <ImageView
-            android:id="@+id/circle_view"
+            android:id="@+id/layoutk_music_indicator_item_img"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </FrameLayout>
