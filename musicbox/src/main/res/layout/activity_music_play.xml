@@ -5,27 +5,27 @@
     <data />
 
     <RelativeLayout
-        android:id="@+id/music_play_container"
+        android:id="@+id/root"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/black">
 
         <!--标题布局-->
         <RelativeLayout
-            android:id="@+id/music_play_title_container"
+            android:id="@+id/title_container"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingHorizontal="12dp"
             android:paddingTop="8dp">
 
             <ImageView
-                android:id="@+id/music_play_title_back"
+                android:id="@+id/title_back"
                 style="@style/music_play_icon"
                 android:layout_alignParentStart="true"
                 android:src="@mipmap/ic_back" />
 
             <ImageView
-                android:id="@+id/music_play_title_share"
+                android:id="@+id/title_share"
                 style="@style/music_play_icon"
                 android:layout_alignParentEnd="true"
                 android:src="@mipmap/ic_share" />
@@ -33,9 +33,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_toStartOf="@id/music_play_title_share"
-                android:layout_toEndOf="@id/music_play_title_back"
                 android:layout_marginHorizontal="12dp"
+                android:layout_toStartOf="@id/title_share"
+                android:layout_toEndOf="@id/title_back"
                 android:orientation="vertical">
 
                 <TextView
@@ -55,6 +55,223 @@
                     android:textColor="@color/white"
                     android:textSize="13sp"
                     tools:text="周杰伦" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <!--中间-->
+        <com.mozhimen.biz_ui.music.LayoutKMusicIndicator
+            android:id="@+id/indicator"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/title_container" />
+
+        <!--底部-->
+        <RelativeLayout
+            android:id="@+id/bottom_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="25dp">
+
+            <LinearLayout
+                android:id="@+id/bottom_operation_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingHorizontal="30dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_love" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_download" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_jing" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_talk" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_download" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!--时间-->
+            <RelativeLayout
+                android:id="@+id/time_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bottom_operation_container"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="20dp"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp">
+
+                <TextView
+                    android:id="@+id/time_start"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="00:00"
+                    android:textColor="@android:color/white"
+                    android:textSize="9sp"
+                    tools:ignore="HardcodedText" />
+
+                <TextView
+                    android:id="@+id/time_end"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="00:00"
+                    android:textColor="@android:color/white"
+                    android:textSize="9sp"
+                    tools:ignore="HardcodedText" />
+
+                <SeekBar
+                    android:id="@+id/time_seekbar"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toStartOf="@id/time_end"
+                    android:layout_toEndOf="@id/time_start"
+                    android:indeterminate="false"
+                    android:maxHeight="1dp"
+                    android:minHeight="1dp"
+                    android:progressDrawable="@drawable/music_play_seekbar"
+                    android:thumb="@drawable/music_play_seekbar_thumb" />
+            </RelativeLayout>
+
+            <!--控制-->
+            <LinearLayout
+                android:id="@+id/control_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/time_container"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingHorizontal="30dp">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/control_mode"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:scaleType="fitXY"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/control_previous"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_pre" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/control_play"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_pause" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/control_next"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/ic_next" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center">
+
+                    <ImageView
+                        android:id="@+id/control_list"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:src="@mipmap/ic_list" />
+                </LinearLayout>
+
             </LinearLayout>
         </RelativeLayout>
     </RelativeLayout>
