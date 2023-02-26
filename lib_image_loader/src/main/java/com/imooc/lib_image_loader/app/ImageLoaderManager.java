@@ -25,7 +25,7 @@ import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 import com.imooc.lib_image_loader.R;
 import com.imooc.lib_image_loader.image.CustomRequestListener;
-import com.imooc.lib_image_loader.image.Utils;
+import com.mozhimen.basick.utilk.graphics.bitmap.blur.UtilKBitmapBlur;
 
 import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
@@ -114,7 +114,7 @@ public class ImageLoaderManager {
                                     @Override
                                     public Drawable apply(Bitmap bitmap) {
                                         Drawable drawable = new BitmapDrawable(
-                                                Utils.doBlur(res, 100, true)
+                                                UtilKBitmapBlur.blurBitmap(res, 100, true)
                                         );
                                         return drawable;
                                     }

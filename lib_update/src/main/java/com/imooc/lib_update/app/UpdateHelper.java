@@ -12,7 +12,7 @@ import com.imooc.lib_update.R;
 import com.imooc.lib_update.update.UpdateService;
 import com.imooc.lib_update.update.constant.Constants;
 import com.imooc.lib_update.update.model.UpdateModel;
-import com.imooc.lib_update.update.utils.Utils;
+import com.mozhimen.basick.utilk.content.UtilKPackage;
 
 public final class UpdateHelper {
 
@@ -38,7 +38,7 @@ public final class UpdateHelper {
         new DisposeDataHandle(new DisposeDataListener() {
           @Override public void onSuccess(Object responseObj) {
             final UpdateModel updateModel = (UpdateModel) responseObj;
-            if (Utils.getVersionCode(mContext) < updateModel.data.currentVersion) {
+            if (UtilKPackage.getVersionCode() < updateModel.data.currentVersion) {
               //说明有新版本,开始下载
               CommonDialog dialog =
                   new CommonDialog(activity, mContext.getString(R.string.update_new_version),

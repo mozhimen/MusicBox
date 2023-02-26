@@ -1,17 +1,39 @@
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
-        maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/grails-core' }
         maven { url 'https://www.jitpack.io' }
         mavenCentral()
         google()
+        flatDir {
+            dirs 'libs'
+        }
+
+        //项目自己的仓库
+//        maven {
+//            url 'http://localhost:8081/repository/imooc-releases/'
+//            credentials {
+//                username 'admin'
+//                password 'admin123'
+//            }
+//        }
+//        maven {
+//            url 'http://localhost:8081/repository/imooc-snapshots/'
+//            credentials {
+//                username 'admin'
+//                password 'admin123'
+//            }
+//        }
     }
 }
 
+include ':music_box'
 rootProject.name = "MusicBox"
-include ':main'
 include ':lib_audio'
 include ':lib_update'
 include ':lib_share'
@@ -26,11 +48,3 @@ include ':lib_base'
 include ':SwiftKit'
 project(':SwiftKit').projectDir = new File("C:\\Users\\mozhimen\\Documents\\GitHub\\SwiftKit")
 include ':SwiftKit:basick'
-include ':SwiftKit:componentk'
-include ':SwiftKit:uicorek'
-include ':SwiftKit:underlayk'
-
-include ':biz_db'
-include ':biz_music'
-include ':musicbox'
-include ':biz_ui'

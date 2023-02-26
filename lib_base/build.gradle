@@ -1,9 +1,7 @@
-plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-    id 'com.alibaba.arouter'
-}
+apply plugin: 'com.android.library'
+apply plugin: 'com.alibaba.arouter'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdk rootProject.android.compileSdk
@@ -12,35 +10,48 @@ android {
         minSdk rootProject.android.minSdk
         targetSdk rootProject.android.targetSdk
 
-        javaCompileOptions {
-            annotationProcessorOptions {
-                arguments = [AROUTER_MODULE_NAME: project.getName()/*, AROUTER_GENERATE_DOC: "enable"*/]
-            }
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+//            }
+//        }
+    }
+
+    //ARouter配置
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-    lintOptions {
-        abortOnError false
-    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api project(path: ':SwiftKit:basick')
-    api "com.alibaba:arouter-api:1.5.1"
-    kapt "com.alibaba:arouter-compiler:1.5.1"
+    compileOnly rootProject.depsLibs.appcompact
+
+    //arouter
+    compileOnly(rootProject.depsLibs.arouterapi) {    //占位主工程arouter库
+        exclude group: 'com.android.support'
+    }
+    kapt rootProject.depsLibs.aroutercompiler
+
+    //lib
+    api project(':SwiftKit:basick')
 }

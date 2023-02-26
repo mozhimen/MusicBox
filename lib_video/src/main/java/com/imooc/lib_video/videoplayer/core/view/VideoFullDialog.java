@@ -13,7 +13,7 @@ import android.widget.RelativeLayout;
 
 import com.imooc.lib_video.R;
 import com.imooc.lib_video.videoplayer.core.VideoAdSlot;
-import com.imooc.lib_video.videoplayer.utils.Utils;
+import com.mozhimen.basick.utilk.device.UtilKScreenProperty;
 
 /**
  * @author: qndroid
@@ -135,12 +135,12 @@ public class VideoFullDialog extends Dialog implements CustomVideoView.ADVideoPl
 
     //准备动画所需数据
     private void prepareScene() {
-        mEndBundle = Utils.getViewProperty(mVideoView);
+        mEndBundle = UtilKScreenProperty.getViewBundle(mVideoView);
         /**
          * 将desationview移到originalview位置处
          */
-        deltaY = (mStartBundle.getInt(Utils.PROPNAME_SCREENLOCATION_TOP) - mEndBundle.getInt(
-                Utils.PROPNAME_SCREENLOCATION_TOP));
+        deltaY = (mStartBundle.getInt(UtilKScreenProperty.PROPNAME_SCREENLOCATION_TOP) - mEndBundle.getInt(
+                UtilKScreenProperty.PROPNAME_SCREENLOCATION_TOP));
         mVideoView.setTranslationY(deltaY);
     }
 

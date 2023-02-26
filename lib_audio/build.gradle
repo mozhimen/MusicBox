@@ -1,8 +1,15 @@
-plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-}
+apply plugin: 'com.android.library'
+//apply plugin: 'org.greenrobot.greendao'
+apply plugin: 'com.alibaba.arouter'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+//apply plugin: 'maven'
+
+//def pomVersionName = '1.0.0-SNAPSHOT'
+//def pomName = this.getName()
+//def pomDescription = 'the audio library for all project'
+//def versionString = '1.0'
+//def versionNumber = 1
 
 android {
     compileSdk rootProject.android.compileSdk
@@ -10,6 +17,20 @@ android {
     defaultConfig {
         minSdk rootProject.android.minSdk
         targetSdk rootProject.android.targetSdk
+
+        //ARouter配置
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+//            }
+//        }
+    }
+
+    //ARouter配置
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
     }
 
     buildTypes {
@@ -23,25 +44,62 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
 
-//    lintOptions {
-//        abortOnError false
-//    }
+    lintOptions {
+        abortOnError false
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    implementation "org.greenrobot:eventbus:3.1.1"
-    implementation "io.reactivex.rxjava2:rxjava:2.2.9"
+    compileOnly rootProject.depsLibs.appcompact    //占位主工程android原生库
+    compileOnly rootProject.depsLibs.design
+    compileOnly rootProject.depsLibs.recyclerview
 
-    //占位主工程自己源码库
-    implementation project(':lib_image_loader')
-    implementation project(':lib_commin_ui')
-    implementation project(':lib_share')
-    implementation project(':lib_base')
-    implementation project(':biz_db')
+    //compileOnly rootProject.depsLibs.greendao    //占位主工程的greenDao类库
+    compileOnly rootProject.depsLibs.eventbus    //占位主工程的eventbus库
+
+    //room
+    kapt 'androidx.room:room-compiler:2.4.2'
+
+    //rxjava
+    compileOnly rootProject.depsLibs.rxjava    //占位主工程的rxjava库
+
+    //arouter
+    compileOnly(rootProject.depsLibs.arouterapi) {    //占位主工程arouter库
+        exclude group: 'com.android.support'
+    }
+    kapt rootProject.depsLibs.aroutercompiler
+
+    //lib
+    compileOnly project(':lib_image_loader')//占位主工程自己源码库
+    compileOnly project(':lib_commin_ui')
+    compileOnly project(':lib_share')
+    compileOnly project(':lib_base')
 }
+
+//greendao {
+//    //其它配置保持默认,有需要再研究
+//    schemaVersion 1 //数据库版本号
+//    daoPackage 'com.imooc.lib_audio.mediaplayer.db' //dao,master类所在包
+//}
+
+//上传maven配置
+//uploadArchives {
+//    repositories {
+//        mavenDeployer {
+//            repository(url: NEXUS_REPOSITORY_URL) {
+//                authentication(userName: NEXUS_USERNAME, password: NEXUS_PASSWORD)
+//            }
+//            pom.project {
+//                name pomName
+//                version pomVersionName
+//                description pomDescription
+//                artifactId pomVersionName
+//                groupId POM_GROUPID
+//                packaging POM_PACKAGING
+//            }
+//        }
+//    }
+//}

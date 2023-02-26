@@ -1,0 +1,88 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.imooc.lib_share" >
+4
+5    <uses-sdk
+6        android:minSdkVersion="21"
+6-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml
+7        android:targetSdkVersion="21" />
+7-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml
+8
+9    <uses-permission android:name="android.permission.INTERNET" />
+9-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:4:3-65
+9-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:4:20-62
+10    <uses-permission android:name="android.permission.GET_TASKS" />
+10-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:5:3-66
+10-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:5:20-63
+11    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+11-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:6:3-74
+11-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:6:20-71
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:7:3-77
+12-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:7:20-74
+13    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+13-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:8:3-74
+13-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:8:20-71
+14    <uses-permission android:name="android.permission.MANAGE_ACCOUNTS" />
+14-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:9:3-72
+14-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:9:20-69
+15    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+15-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:10:3-69
+15-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:10:20-66
+16
+17    <application
+17-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:12:3-40:17
+18        android:allowBackup="true"
+18-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:13:5-31
+19        android:label="@string/app_name" >
+19-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:14:5-37
+20
+21        <!-- shareSDK -->
+22        <activity
+22-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:16:5-32:16
+23            android:name="com.mob.tools.MobUIShell"
+23-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:17:7-46
+24            android:configChanges="keyboardHidden|orientation|screenSize"
+24-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:18:7-68
+25            android:screenOrientation="portrait"
+25-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:19:7-43
+26            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+26-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:20:7-66
+27            android:windowSoftInputMode="stateHidden|adjustResize" >
+27-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:21:7-61
+28
+29            <!-- QQ和QQ空间分享 QQ登录的回调必须要配置的 -->
+30            <intent-filter>
+30-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:24:7-31:23
+31                <data android:scheme="tencent1104917113" />
+31-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:25:9-52
+31-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:25:15-49
+32
+33                <action android:name="android.intent.action.VIEW" />
+33-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:27:9-61
+33-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:27:17-58
+34
+35                <category android:name="android.intent.category.BROWSABLE" />
+35-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:29:9-70
+35-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:29:19-67
+36                <category android:name="android.intent.category.DEFAULT" />
+36-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:30:9-68
+36-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:30:19-65
+37            </intent-filter>
+38        </activity>
+39        <!-- 微信分享回调 -->
+40        <activity
+40-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:34:5-39:69
+41            android:name="com.youdu.wxapi.WXEntryActivity"
+41-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:35:7-53
+42            android:configChanges="keyboardHidden|orientation|screenSize"
+42-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:36:7-68
+43            android:exported="true"
+43-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:37:7-30
+44            android:screenOrientation="portrait"
+44-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:38:7-43
+45            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+45-->F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:39:7-66
+46    </application>
+47
+48</manifest>

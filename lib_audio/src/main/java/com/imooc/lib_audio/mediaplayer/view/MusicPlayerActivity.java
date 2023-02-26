@@ -24,19 +24,17 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.imooc.lib_audio.R;
 import com.imooc.lib_audio.mediaplayer.core.AudioController;
 import com.imooc.lib_audio.mediaplayer.core.CustomMediaPlayer;
+import com.imooc.lib_audio.mediaplayer.db.DBHelper;
 import com.imooc.lib_audio.mediaplayer.events.AudioFavouriteEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioLoadEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioPauseEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioPlayModeEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioProgressEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioStartEvent;
-import com.imooc.lib_audio.mediaplayer.utils.Utils;
+import com.imooc.lib_audio.mediaplayer.model.AudioBean;
 import com.imooc.lib_commin_ui.base.BaseActivity;
 import com.imooc.lib_image_loader.app.ImageLoaderManager;
 import com.imooc.lib_share.share.ShareDialog;
-import com.mozhimen.basick.executork.ExecutorK;
-import com.mozhimen.biz_db.BizDb;
-import com.mozhimen.biz_db.mos.AudioBean;
 
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
@@ -47,7 +45,6 @@ import org.greenrobot.eventbus.ThreadMode;
  */
 @Route(path = "/audio/music_activity")
 public class MusicPlayerActivity extends BaseActivity {
-    private static final String TAG = "MusicPlayerActivity>>>>>";
 
     private RelativeLayout mBgView;
     private TextView mInfoView;
@@ -120,7 +117,7 @@ public class MusicPlayerActivity extends BaseActivity {
         findViewById(R.id.share_view).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                shareMusic(mAudioBean.getUrl(), mAudioBean.getName());
+                shareMusic(mAudioBean.getMUrl(), mAudioBean.getName());
             }
         });
         findViewById(R.id.show_list_view).setOnClickListener(new View.OnClickListener() {
@@ -235,8 +232,8 @@ public class MusicPlayerActivity extends BaseActivity {
         int totalTime = event.maxLength;
         int currentTime = event.progress;
         //更新时间
-        mStartTimeView.setText(Utils.formatTime(currentTime));
-        mTotalTimeView.setText(Utils.formatTime(totalTime));
+        mStartTimeView.setText(formatTime(currentTime));
+        mTotalTimeView.setText(formatTime(totalTime));
         mProgressView.setProgress(currentTime);
         mProgressView.setMax(totalTime);
         if (event.mStatus == CustomMediaPlayer.Status.PAUSED) {
@@ -244,6 +241,21 @@ public class MusicPlayerActivity extends BaseActivity {
         } else {
             showPlayView();
         }
+    }
+
+    /**
+     * 毫秒转分秒
+     */
+    private static String formatTime(long time) {
+        String min = (time / (1000 * 60)) + "";
+        String second = (time % (1000 * 60) / 1000) + "";
+        if (min.length() < 2) {
+            min = 0 + min;
+        }
+        if (second.length() < 2) {
+            second = 0 + second;
+        }
+        return min + ":" + second;
     }
 
     private void showPlayView() {
@@ -269,14 +281,11 @@ public class MusicPlayerActivity extends BaseActivity {
     }
 
     private void changeFavouriteStatus(boolean anim) {
-        ExecutorK.INSTANCE.execute(TAG, () -> {
-            if (BizDb.INSTANCE.hasFavouriteBean(mAudioBean.getId())) {
-                runOnUiThread(() -> mFavouriteView.setImageResource(R.mipmap.audio_aeh));
-            } else {
-                runOnUiThread(() -> mFavouriteView.setImageResource(R.mipmap.audio_aef));
-            }
-        });
-
+        if (DBHelper.selectFavourite(mAudioBean) != null) {
+            mFavouriteView.setImageResource(R.mipmap.audio_aeh);
+        } else {
+            mFavouriteView.setImageResource(R.mipmap.audio_aef);
+        }
 
         if (anim) {
             //留个作业，将动画封到view中作为一个自定义View

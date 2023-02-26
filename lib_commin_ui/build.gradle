@@ -1,8 +1,6 @@
-plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-}
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdk rootProject.android.compileSdk
@@ -18,20 +16,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
+
+    //ARouter配置
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
     }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation 'androidx.recyclerview:recyclerview:1.0.0'
-    api "com.github.hackware1993:MagicIndicator:1.5.0"
+    compileOnly rootProject.depsLibs.appcompact
+    compileOnly rootProject.depsLibs.recyclerview
 
-    implementation project(':lib_image_loader')
-    implementation project(':lib_base')
+    //magic_indicator
+    api rootProject.depsLibs.magicindicator
+
+    //lib
+    compileOnly project(':lib_image_loader')    //可以用arouter去掉此依赖
 }

@@ -1,22 +1,37 @@
-apply from: 'config.gradle'
-apply plugin: 'com.alibaba.arouter'
+//引入根工程下的统一版本管理文件
+apply from: this.rootProject.file('imooc.gradle')
+
 buildscript {
-    ext.kotlin_version = "1.6.10"
     repositories {
-        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        gradlePluginPortal()
         maven { url 'https://maven.aliyun.com/repository/central' }
         maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/jcenter' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url 'https://maven.aliyun.com/repository/grails-core' }
+        maven { url 'https://www.jitpack.io' }
         mavenCentral()
         google()
+//        maven {
+//            url 'http://localhost:8081/repository/imooc-releases/'
+//            credentials {
+//                username 'admin'
+//                password 'admin123'
+//            }
+//        }
+//        maven {
+//            url 'http://localhost:8081/repository/imooc-snapshots/'
+//            credentials {
+//                username 'admin'
+//                password 'admin123'
+//            }
+//        }
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.3'
+        classpath 'com.android.tools.build:gradle:7.3.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.7.10"
-        classpath "com.alibaba:arouter-register:1.0.2"
+        classpath "com.github.jadepeakpoet.ARouter:arouter-register:1.0.1"         //ARouter插件依赖
     }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }

@@ -23,7 +23,7 @@ import com.imooc.lib_webview.adbrowser.AdBrowserLayout;
 import com.imooc.lib_webview.adbrowser.AdBrowserWebViewClient;
 import com.imooc.lib_webview.adbrowser.Base64Drawables;
 import com.imooc.lib_webview.adbrowser.BrowserWebView;
-import com.imooc.lib_webview.utils.Utils;
+import com.mozhimen.basick.utilk.encrypt.UtilKBase64;
 
 /**
  * WebView页面
@@ -141,9 +141,9 @@ public final class AdBrowserActivity extends Activity {
     @SuppressLint("NewApi")
     private void setImage(Button button, String imageString) {
         if (Build.VERSION.SDK_INT < 16) {
-            button.setBackgroundDrawable(Utils.decodeImage(imageString));
+            button.setBackgroundDrawable(UtilKBase64.str2BitmapDrawable(imageString));
         } else {
-            button.setBackground(Utils.decodeImage(imageString));
+            button.setBackground(UtilKBase64.str2BitmapDrawable(imageString));
         }
     }
 

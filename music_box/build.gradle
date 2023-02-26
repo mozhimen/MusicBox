@@ -1,0 +1,106 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.alibaba.arouter'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdk rootProject.android.compileSdk
+
+    defaultConfig {
+        applicationId rootProject.android.applicationId
+        minSdk rootProject.android.minSdk
+        targetSdkVersion rootProject.android.targetSdkVersion
+        versionCode rootProject.android.versionCode
+        versionName rootProject.android.versionName
+        multiDexEnabled rootProject.android.multiDexEnabled
+
+        //ARouter配置
+//        javaCompileOptions {
+//            annotationProcessorOptions {
+//                arguments = [AROUTER_MODULE_NAME: project.getName(), AROUTER_GENERATE_DOC: "enable"]
+//            }
+//        }
+
+    }
+
+    //ARouter配置
+    kapt {
+        arguments {
+            arg("AROUTER_MODULE_NAME", project.getName())
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        abortOnError false
+    }
+
+    //不同渠道的签名，可以定义多个
+    signingConfigs {
+        release {
+            // 绝对路径或相对路径
+            storeFile file("imooc_voice_key")
+            storePassword "123456"
+            keyAlias "qndroid"
+            keyPassword "123456"
+            v1SigningEnabled true
+            v2SigningEnabled true
+        }
+    }
+
+    buildTypes {
+        release {
+            signingConfig signingConfigs.release
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.depsLibs.appcompact
+    implementation rootProject.depsLibs.design
+    implementation rootProject.depsLibs.recyclerview
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation rootProject.depsLibs.constraint
+
+    //eventbus
+    implementation rootProject.depsLibs.eventbus    //eventbus类库依赖
+
+    //greendao
+    //implementation rootProject.depsLibs.greendao     //greendao类库依赖
+
+    //rxjava
+    implementation rootProject.depsLibs.rxjava
+    implementation rootProject.depsLibs.rxandroid
+
+    //arouter
+    implementation(rootProject.depsLibs.arouterapi) {
+        exclude group: 'com.android.support'
+    }
+    kapt rootProject.depsLibs.aroutercompiler
+
+    //gson
+    implementation rootProject.depsLibs.gson
+
+    //lib
+    implementation project(':lib_commin_ui')//基础UI库
+    implementation project(':lib_qrcode')//二维码扫描库
+    implementation project(':lib_video')//视频播放器组件
+    implementation project(':lib_audio')//音频播放器组
+    implementation project(':lib_webview')    //webview库
+    implementation project(':lib_network')    //网络请求库
+    implementation project(':lib_update')    //app下载更新库
+    implementation project(':lib_share')    //分享库
+    implementation project(':lib_image_loader')    //图片加载库
+    implementation project(':lib_pullalive')    //保活库
+    implementation project(':lib_base')    //业务基础库
+    //implementation 'com.imooc.android:lib_audio:1.0.0-SNAPSHOT'    //自己的maven库依赖
+
+}

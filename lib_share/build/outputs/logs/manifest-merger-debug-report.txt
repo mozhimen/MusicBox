@@ -1,0 +1,101 @@
+-- Merging decision tree log ---
+manifest
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:1:1-42:12
+INJECTED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:1:1-42:12
+INJECTED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:1:1-42:12
+	package
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:1:11-40
+		INJECTED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml
+		INJECTED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:2:3-61
+uses-permission#android.permission.INTERNET
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:4:3-65
+	android:name
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:4:20-62
+uses-permission#android.permission.GET_TASKS
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:5:3-66
+	android:name
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:5:20-63
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:6:3-74
+	android:name
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:6:20-71
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:7:3-77
+	android:name
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:7:20-74
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:8:3-74
+	android:name
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:8:20-71
+uses-permission#android.permission.MANAGE_ACCOUNTS
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:9:3-72
+	android:name
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:9:20-69
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:10:3-69
+	android:name
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:10:20-66
+application
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:12:3-40:17
+	android:label
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:14:5-37
+	android:allowBackup
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:13:5-31
+activity#com.mob.tools.MobUIShell
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:16:5-32:16
+	android:screenOrientation
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:19:7-43
+	android:windowSoftInputMode
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:21:7-61
+	android:configChanges
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:18:7-68
+	android:theme
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:20:7-66
+	android:name
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:17:7-46
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:tencent1104917113
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:24:7-31:23
+data
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:25:9-52
+	android:scheme
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:25:15-49
+action#android.intent.action.VIEW
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:27:9-61
+	android:name
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:27:17-58
+category#android.intent.category.BROWSABLE
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:29:9-70
+	android:name
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:29:19-67
+category#android.intent.category.DEFAULT
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:30:9-68
+	android:name
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:30:19-65
+activity#com.youdu.wxapi.WXEntryActivity
+ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:34:5-39:69
+	android:screenOrientation
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:38:7-43
+	android:exported
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:37:7-30
+	android:configChanges
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:36:7-68
+	android:theme
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:39:7-66
+	android:name
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml:35:7-53
+uses-sdk
+INJECTED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml
+INJECTED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml
+INJECTED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml
+INJECTED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml
+	android:targetSdkVersion
+		INJECTED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml
+		INJECTED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml
+		ADDED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml
+		INJECTED from F:\GitHub\MusicBox\lib_share\src\main\AndroidManifest.xml

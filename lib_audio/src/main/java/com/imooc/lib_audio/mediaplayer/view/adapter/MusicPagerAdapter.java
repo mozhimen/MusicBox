@@ -14,8 +14,8 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.imooc.lib_audio.R;
 import com.imooc.lib_audio.mediaplayer.core.AudioController;
+import com.imooc.lib_audio.mediaplayer.model.AudioBean;
 import com.imooc.lib_image_loader.app.ImageLoaderManager;
-import com.mozhimen.biz_db.mos.AudioBean;
 
 import java.util.ArrayList;
 

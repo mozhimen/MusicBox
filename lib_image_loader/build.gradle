@@ -1,8 +1,6 @@
-plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-}
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdk rootProject.android.compileSdk
@@ -18,22 +16,20 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':lib_base')
+    compileOnly rootProject.depsLibs.appcompact
 
-    implementation "com.github.bumptech.glide:glide:4.9.0"
-    kapt "com.github.bumptech.glide:compiler:4.9.0"
+    //glide
+    implementation rootProject.depsLibs.glide    //glide相关依赖
+    kapt rootProject.depsLibs.glidecompiler
 
-    implementation "io.reactivex.rxjava2:rxjava:2.2.9"
-    implementation "io.reactivex.rxjava2:rxandroid:2.1.1"
+    //rxjava
+    compileOnly rootProject.depsLibs.rxjava    //占位主工程rxjava
+    compileOnly rootProject.depsLibs.rxandroid
+
+    //lib
+    implementation project(":lib_base")
 }

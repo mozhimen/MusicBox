@@ -10,7 +10,7 @@ import com.alibaba.android.arouter.launcher.ARouter;
 import com.imooc.lib_base.service.audio.AudioService;
 import com.imooc.lib_video.videoplayer.core.view.CustomVideoView;
 import com.imooc.lib_video.videoplayer.core.view.VideoFullDialog;
-import com.imooc.lib_video.videoplayer.utils.Utils;
+import com.mozhimen.basick.utilk.device.UtilKScreenProperty;
 
 /**
  * 视频业务逻辑层
@@ -66,7 +66,7 @@ public class VideoAdSlot implements CustomVideoView.ADVideoPlayerListener {
     @Override
     public void onClickFullScreenBtn() {
         //获取videoview在当前界面的属性
-        Bundle bundle = Utils.getViewProperty(mParentView);
+        Bundle bundle = UtilKScreenProperty.getViewBundle(mParentView);
         mParentView.removeView(mVideoView);
         VideoFullDialog dialog =
                 new VideoFullDialog(mContext, mVideoView, mXAdInstance, mVideoView.getCurrentPosition());

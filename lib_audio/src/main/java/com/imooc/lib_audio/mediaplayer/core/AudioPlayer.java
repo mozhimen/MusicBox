@@ -17,8 +17,7 @@ import com.imooc.lib_audio.mediaplayer.events.AudioPauseEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioProgressEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioReleaseEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioStartEvent;
-import com.mozhimen.biz_db.mos.AudioBean;
-
+import com.imooc.lib_audio.mediaplayer.model.AudioBean;
 import java.io.IOException;
 import org.greenrobot.eventbus.EventBus;
 
@@ -158,7 +157,7 @@ public class AudioPlayer
   public void load(AudioBean audioBean) {
     try {
       mMediaPlayer.reset();
-      mMediaPlayer.setDataSource(audioBean.getUrl());
+      mMediaPlayer.setDataSource(audioBean.getMUrl());
       mMediaPlayer.prepareAsync();
       //发送加载音频事件，UI类型处理事件
       EventBus.getDefault().post(new AudioLoadEvent(audioBean));

@@ -16,9 +16,9 @@ import com.imooc.lib_audio.mediaplayer.events.AudioLoadEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioPauseEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioProgressEvent;
 import com.imooc.lib_audio.mediaplayer.events.AudioStartEvent;
+import com.imooc.lib_audio.mediaplayer.model.AudioBean;
+import com.imooc.lib_commin_ui.circle_image_view.CircleImageView;
 import com.imooc.lib_image_loader.app.ImageLoaderManager;
-import com.mozhimen.biz_db.mos.AudioBean;
-
 import org.greenrobot.eventbus.EventBus;
 import org.greenrobot.eventbus.Subscribe;
 import org.greenrobot.eventbus.ThreadMode;

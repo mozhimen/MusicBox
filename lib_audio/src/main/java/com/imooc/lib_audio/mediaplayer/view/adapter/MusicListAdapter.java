@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.imooc.lib_audio.R;
 import com.imooc.lib_audio.mediaplayer.core.AudioController;
-import com.mozhimen.biz_db.mos.AudioBean;
+import com.imooc.lib_audio.mediaplayer.model.AudioBean;
 
 import java.util.ArrayList;
 
@@ -48,7 +48,7 @@ public class MusicListAdapter extends RecyclerView.Adapter {
         myViewHolder.name.setText(bean.getName());
         myViewHolder.author.setText(
                 new StringBuilder().append(" ").append("-").append(" ").append(bean.getAuthor()));
-        if (bean.getId() == mCurrentBean.getId()) {
+        if (bean.getId().equals(mCurrentBean.getId())) {
             //为播放中歌曲，红色提醒
             myViewHolder.tip.setVisibility(View.VISIBLE);
             myViewHolder.name.setTextColor(
