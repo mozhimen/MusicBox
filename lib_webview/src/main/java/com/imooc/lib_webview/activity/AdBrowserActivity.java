@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -23,7 +22,7 @@ import com.imooc.lib_webview.adbrowser.AdBrowserLayout;
 import com.imooc.lib_webview.adbrowser.AdBrowserWebViewClient;
 import com.imooc.lib_webview.adbrowser.Base64Drawables;
 import com.imooc.lib_webview.adbrowser.BrowserWebView;
-import com.mozhimen.basick.utilk.encrypt.UtilKBase64;
+import com.mozhimen.basick.utilk.java.io.encode.UtilKBase64;
 
 /**
  * WebView页面
@@ -141,9 +140,9 @@ public final class AdBrowserActivity extends Activity {
     @SuppressLint("NewApi")
     private void setImage(Button button, String imageString) {
         if (Build.VERSION.SDK_INT < 16) {
-            button.setBackgroundDrawable(UtilKBase64.str2BitmapDrawable(imageString));
+            button.setBackgroundDrawable(UtilKBase64.string2BitmapDrawable(imageString));
         } else {
-            button.setBackground(UtilKBase64.str2BitmapDrawable(imageString));
+            button.setBackground(UtilKBase64.string2BitmapDrawable(imageString));
         }
     }
 
